@@ -8,14 +8,12 @@ import java.time.LocalDate;
 //Here the name of the table to be created in the database is explicitly mentioned as 'comments'. Hence the table named 'comments' will be created in the database with all the columns mapped to all the attributes in 'Comment' class
 @Table(name = "comments")
 public class Comment {
-
     //@Id annotation specifies that the corresponding attribute is a primary key
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     //@Column annotation specifies that the attribute will be mapped to the column in the database.
     //Here the column name is explicitly mentioned as 'id'
     private Integer id;
-
 
     @Column(name="text")
     private String text;
@@ -31,7 +29,7 @@ public class Comment {
     @JoinColumn(name = "user_id")
     private User user;
 
-
+    //Below annotation indicates that the name of the column in 'comments' table referring the primary key in 'image' table will be 'image_id'
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="image_id")
     private Image image;
