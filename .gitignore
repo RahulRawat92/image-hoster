@@ -7,6 +7,9 @@
 #IDE metadata
 **.idea/**
 
+ImageHoster.iml
+target/
+
 # BlueJ files
 *.ctxt
 
