@@ -97,7 +97,6 @@ public class ImageController {
     @RequestMapping(value = "/editImage")
     public String editImage(@RequestParam("imageId") Integer imageId, Model model, HttpSession session, RedirectAttributes redirectAttrs) {
         Image image = imageService.getImage(imageId);
-
         //Check if user was owner or not, Edit only if user was a owner.
         if(isImageOwner(imageId, session)) {
             String tags = convertTagsToString(image.getTags());
@@ -135,7 +134,6 @@ public class ImageController {
         else {
             updatedImage.setImageFile(updatedImageData);
         }
-
         updatedImage.setId(imageId);
         User user = (User) session.getAttribute("loggeduser");
         updatedImage.setUser(user);
